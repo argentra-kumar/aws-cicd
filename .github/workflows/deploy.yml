@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -27,7 +28,11 @@ jobs:
           sudo systemctl start docker
           sudo systemctl enable docker
 
-          cd ~/my-nest-api || git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git ~/my-nest-api && cd ~/my-nest-api
+          # Ensure GitHub is trusted
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          cd ~/my-nest-api || git clone https://github.com/argentra-kumar/aws-cicd.git ~/my-nest-api && cd ~/my-nest-api
 
           git pull origin main
 
