@@ -32,7 +32,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-          cd ~/my-nest-api || git clone git@github.com:argentra-kumar/aws-cicd.git ~/my-nest-api && cd ~/my-nest-api
+          cd ~/my-nest-api || git clone https://github.com/argentra-kumar/aws-cicd.git ~/my-nest-api && cd ~/my-nest-api
 
           git pull origin main
 
